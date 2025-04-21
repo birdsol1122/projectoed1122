@@ -6,429 +6,804 @@
     <title>Project OED - Neowiz Quest 팀원 모집</title>
     <style>
         :root {
-            --primary-color: #2a0a29;
-            --secondary-color: #a64942;
-            --accent-color: #d6ad60;
-            --bg-color: #0f0a0a;
-            --text-color: #e9e6e0;
-            --section-bg: rgba(22, 11, 21, 0.7);
+            --primary-dark: #0f0f0f;
+            --secondary-dark: #1a1a1a;
+            --crimson: #9a0000;
+            --crimson-light: #c20000;
+            --grey-light: #e0e0e0;
+            --grey-mid: #a0a0a0;
+            --text-color: #f5f5f5;
+            --border-color: #2a2a2a;
         }
         
-        body {
-            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-image: url('/api/placeholder/1200/800');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            background-color: var(--section-bg);
-            border-left: 5px solid var(--accent-color);
-            border-radius: 5px;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-top: 40px;
-            color: var(--accent-color);
-        }
-        
-        h3 {
-            color: var(--secondary-color);
-            font-size: 1.4rem;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-        
-        .project-description {
-            font-size: 1.1rem;
-            background-color: var(--section-bg);
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--secondary-color);
-        }
-        
-        .section {
-            background-color: var(--section-bg);
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-        }
-        
-        .highlight {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-        
-        .position-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .position-table th, .position-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .position-table th {
-            background-color: rgba(166, 73, 66, 0.3);
-            color: var(--accent-color);
-        }
-        
-        .position-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .keyword {
-            background-color: rgba(166, 73, 66, 0.6);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
             box-sizing: border-box;
         }
         
-        .timeline-item::after {
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Serif KR', serif;
+            background-color: var(--primary-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .hero {
+            position: relative;
+            padding: 100px 0 80px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 1)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero::after {
             content: '';
             position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -12px;
-            background-color: var(--accent-color);
-            border: 4px solid var(--secondary-color);
-            top: 15px;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(154, 0, 0, 0.15) 0%, rgba(15, 15, 15, 0) 70%);
+            pointer-events: none;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            max-width: 180px;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 8px rgba(154, 0, 0, 0.5));
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
             z-index: 1;
         }
         
-        .left {
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, var(--grey-light) 0%, var(--grey-mid) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--grey-mid);
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: 0.05em;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .tag {
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            background-color: rgba(154, 0, 0, 0.2);
+            border: 1px solid rgba(154, 0, 0, 0.3);
+            color: var(--grey-light);
+            border-radius: 3px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            color: var(--text-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
             left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--crimson);
         }
         
-        .right {
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 850px;
+        }
+        
+        .intro-text strong {
+            color: var(--crimson-light);
+            font-weight: 600;
+        }
+        
+        .game-info {
+            background-color: var(--secondary-dark);
+            border-radius: 6px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 15px 25px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--grey-mid);
+        }
+        
+        .info-value {
+            color: var(--text-color);
+        }
+        
+        .info-value em {
+            font-style: normal;
+            color: var(--grey-light);
+            border-bottom: 1px solid rgba(154, 0, 0, 0.3);
+        }
+        
+        .concept-image {
+            width: 100%;
+            border-radius: 6px;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--grey-mid);
+            margin-top: 10px;
+        }
+        
+        /* Team Culture */
+        .culture-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .culture-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .culture-marker {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(154, 0, 0, 0.2);
+            border: 1px solid rgba(154, 0, 0, 0.3);
+            border-radius: 2px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        
+        .culture-content strong {
+            color: var(--crimson-light);
+            font-weight: 600;
+        }
+        
+        /* Positions */
+        .positions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .position-card {
+            background-color: var(--secondary-dark);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        
+        .position-header {
+            background-color: rgba(154, 0, 0, 0.2);
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(154, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .position-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .position-count {
+            background-color: rgba(154, 0, 0, 0.4);
+            color: var(--text-color);
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .position-content {
+            padding: 20px;
+        }
+        
+        .position-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-label {
+            font-size: 0.95rem;
+            color: var(--grey-mid);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .duties-list, .qualifications-list {
+            list-style: none;
+            margin-left: 10px;
+        }
+        
+        .duties-list li, .qualifications-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .duties-list li::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--grey-mid);
+        }
+        
+        .qualifications-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--crimson-light);
+        }
+        
+        .common-qualifications {
+            background-color: rgba(154, 0, 0, 0.1);
+            border: 1px solid rgba(154, 0, 0, 0.2);
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin-top: 40px;
+        }
+        
+        .common-qualifications h3 {
+            color: var(--crimson-light);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .common-qualifications ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .common-qualifications li {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .common-qualifications li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--crimson-light);
+        }
+        
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            margin: 60px 0;
+            padding: 20px 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
             left: 50%;
+            width: 2px;
+            background-color: rgba(154, 0, 0, 0.3);
+            transform: translateX(-50%);
         }
         
-        .right::after {
-            left: -12px;
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: 50%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            right: -9px;
+            top: 15px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--primary-dark);
+            border: 2px solid var(--crimson);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -9px;
         }
         
         .timeline-content {
-            padding: 20px;
-            background-color: rgba(42, 10, 41, 0.7);
-            position: relative;
+            background-color: var(--secondary-dark);
             border-radius: 6px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
         }
         
+        .timeline-date {
+            color: var(--crimson-light);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Apply Section */
         .apply-section {
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            background-color: var(--section-bg);
-            border-left: 5px solid var(--accent-color);
-            border-radius: 5px;
+            padding: 100px 0;
         }
         
-        .apply-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .apply-button:hover {
-            background-color: var(--secondary-color);
+        .apply-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             color: var(--text-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
+        .apply-steps {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .apply-step {
+            display: flex;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .step-number {
+            background-color: rgba(154, 0, 0, 0.2);
+            color: var(--crimson-light);
+            font-weight: 600;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .apply-contact {
+            margin: 40px 0;
+        }
+        
+        .contact-link {
+            color: var(--crimson-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--grey-light);
+        }
+        
+        .apply-cta {
+            font-size: 1.2rem;
+            color: var(--grey-light);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--crimson);
+            color: var(--text-color);
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: var(--crimson-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            font-style: italic;
-            color: rgba(233, 230, 224, 0.7);
+            padding: 40px 0;
+            color: var(--grey-mid);
+            font-size: 0.95rem;
         }
         
-        @media screen and (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
             }
             
-            .timeline-item {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .timeline-line {
+                left: 20px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(even) {
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+                margin-left: 0;
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
             }
             
-            .timeline-item::after {
-                left: 18px;
+            .timeline-dot, .timeline-item:nth-child(even) .timeline-dot {
+                left: 11px;
+                right: auto;
             }
             
-            .left::after, .right::after {
-                left: 18px;
+            .common-qualifications ul {
+                grid-template-columns: 1fr;
             }
-            
-            .right {
-                left: 0%;
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🕯 프로젝트 OED</h1>
-            <div class="tagline">세기말 픽셀 느와르 미스터리</div>
-            <div class="keywords">
-                <span class="keyword">#추리</span>
-                <span class="keyword">#미스터리</span>
-                <span class="keyword">#어드벤처</span>
-                <span class="keyword">#내러티브</span>
-                <span class="keyword">#네오위즈퀘스트2026</span>
-                <span class="keyword">#픽셀아트</span>
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo-container">
+                    <img src="https://github.com/birdsol1122/projectoed1122/blob/main/logo.png?raw=true" alt="Project OED Logo" class="logo">
+                </div>
+                <h1 class="title">프로젝트 OED</h1>
+                <p class="subtitle">세기말 픽셀 느와르 미스터리</p>
+                <div class="tags">
+                    <span class="tag">#추리</span>
+                    <span class="tag">#미스터리</span>
+                    <span class="tag">#어드벤처</span>
+                    <span class="tag">#내러티브</span>
+                    <span class="tag">#네오위즈퀘스트2026</span>
+                    <span class="tag">#픽셀아트</span>
+                </div>
             </div>
-        </header>
-
-        <div class="project-description">
-            <p><strong>"이 도시에선 모든 빛이 그림자를 만든다."</strong></p>
-            <p>기억을 잃은 한 남자가 잃어버린 딸을 찾아 헤매는 1999년의 암흑도시. 그 뒤에 도사린 그리스‑로마 신화와 크툴루 신화의 뒤얽힌 음모, 그리고 당신의 픽셀 한 조각이 완성할 운명적 비극.</p>
         </div>
+    </div>
 
-        <div class="section">
-            <h2>🌟 우리가 만드는 것</h2>
-            <table class="position-table">
-                <tr>
-                    <td><strong>장르</strong></td>
-                    <td>#추리 #미스터리 #어드벤처 #내러티브</td>
-                </tr>
-                <tr>
-                    <td><strong>그래픽</strong></td>
-                    <td>레트로 픽셀 사이드뷰 <span class="highlight">(+ 3D 쿼터뷰 테스트 진행 중)</span></td>
-                </tr>
-                <tr>
-                    <td><strong>분위기</strong></td>
-                    <td>세기말 화려함 × 네오‑느와르 음습함</td>
-                </tr>
-                <tr>
-                    <td><strong>레퍼런스</strong></td>
-                    <td><em>Disco Elysium</em>, <em>Tails Noir</em>, <em>Call of Cthulhu TRPG</em>, <em>황금 우상 사건</em></td>
-                </tr>
-            </table>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">프로젝트 소개</h2>
+            <p class="intro-text"><strong>"이 도시에선 모든 빛이 그림자를 만든다."</strong> 기억을 잃은 한 남자가 잃어버린 딸을 찾아 헤매는 1999년의 암흑도시. 그 뒤에 도사린 그리스‑로마 신화와 크툴루 신화의 뒤얽힌 음모, 그리고 당신의 픽셀 한 조각이 완성할 운명적 비극.</p>
             
-            <h3>게임 이미지 콘셉트</h3>
-            <div style="text-align: center;">
-                <img src="/api/placeholder/800/400" alt="게임 콘셉트 이미지" style="max-width: 100%; border-radius: 5px; margin: 20px 0;">
-                <p style="font-style: italic; color: rgba(233, 230, 224, 0.7);">* 위 이미지는 기획을 위한 참고용 러프 이미지입니다</p>
+            <div class="game-info">
+                <div class="info-grid">
+                    <div class="info-label">장르</div>
+                    <div class="info-value">#추리 #미스터리 #어드벤처 #내러티브</div>
+                    
+                    <div class="info-label">그래픽</div>
+                    <div class="info-value">레트로 픽셀 사이드뷰 (+ 3D 쿼터뷰 테스트 진행 중)</div>
+                    
+                    <div class="info-label">분위기</div>
+                    <div class="info-value">세기말 화려함 × 네오‑느와르 음습함</div>
+                    
+                    <div class="info-label">레퍼런스</div>
+                    <div class="info-value"><em>Disco Elysium</em>, <em>Tails Noir</em>, <em>Call of Cthulhu TRPG</em>, <em>황금 우상 사건</em></div>
+                </div>
             </div>
+            
+            <img src="/api/placeholder/800/400" alt="게임 콘셉트 이미지" class="concept-image">
+            <p class="image-caption">* 위 이미지는 기획을 위한 참고용 러프 이미지입니다</p>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>🪄 팀 분위기 & 작업 방식</h2>
-            <ul>
-                <li><strong>현업자 중심:</strong> 프로그래머 4명, 기획자 3명, 아트 1명 (+당신!)</li>
-                <li><strong>주간 보이스 회의 & 칸반 관리:</strong> 디스코드로 투명한 일정 공유</li>
-                <li><strong>포근‑말랑‑느긋</strong> 하지만 <strong>책임감</strong>은 확실하게</li>
-                <li><strong>오프라인 번개</strong> (선택)로 친목 & 아이디어 스프린트</li>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">팀 분위기 & 작업 방식</h2>
+            <ul class="culture-list">
+                <li class="culture-item">
+                    <div class="culture-marker"></div>
+                    <div class="culture-content">
+                        <strong>현업자 중심:</strong> 프로그래머 4명, 기획자 3명, 아트 1명 (+당신!)
+                    </div>
+                </li>
+                <li class="culture-item">
+                    <div class="culture-marker"></div>
+                    <div class="culture-content">
+                        <strong>주간 보이스 회의 & 칸반 관리:</strong> 디스코드로 투명한 일정 공유
+                    </div>
+                </li>
+                <li class="culture-item">
+                    <div class="culture-marker"></div>
+                    <div class="culture-content">
+                        <strong>포근‑말랑‑느긋</strong> 하지만 <strong>책임감</strong>은 확실하게
+                    </div>
+                </li>
+                <li class="culture-item">
+                    <div class="culture-marker"></div>
+                    <div class="culture-content">
+                        <strong>오프라인 번개</strong> (선택)로 친목 & 아이디어 스프린트
+                    </div>
+                </li>
             </ul>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>🎨 모집 포지션</h2>
-            <table class="position-table">
-                <thead>
-                    <tr>
-                        <th>포지션</th>
-                        <th>인원</th>
-                        <th>당신이 하게 될 일</th>
-                        <th>이런 분이면 딱!</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>게임 아티스트</strong></td>
-                        <td>1명</td>
-                        <td>
-                            - 일러스트 / 배경 / UI 등 2D 아트 전반<br>
-                            - 콘셉트 시트 & 파이널 리소스 제작
-                        </td>
-                        <td>
-                            ▸ 픽셀/일러스트 자유자재<br>
-                            ▸ 팀 코어아트 잡고 싶은 분<br>
-                            ▸ 오이디푸스 비극, 그리스 신화, 크툴루 신화에 관심 많으신 분
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>픽셀 아티스트</strong></td>
-                        <td>1명</td>
-                        <td>
-                            - 캐릭터 & 오브젝트 픽셀 작업<br>
-                            - 캐릭터 애니메이션
-                        </td>
-                        <td>
-                            ▸ 2D 도트에 진심<br>
-                            ▸ 스팀 레트로 감성 좋아하는 분<br>
-                            ▸ Tails Noir, 안녕 서울 등의 게임 스타일에 관심 있으신 분
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>UI/UX 디자이너</strong></td>
-                        <td>1명</td>
-                        <td>
-                            - 인게임 UI/UX 설계 & 제작<br>
-                            - 레이아웃 가이드
-                        </td>
-                        <td>
-                            ▸ "시리어스 미스터리" 톤앤매너 이해<br>
-                            ▸ 유니티 UI 경험 우대<br>
-                            ▸ 누아르, 미스터리 장르의 UI 디자인에 관심 있으신 분
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>사운드 크리에이터</strong></td>
-                        <td>1명</td>
-                        <td>
-                            - BGM / SFX / 앰비언스 전반<br>
-                            - 세기말 느와르 × 픽셀 하모니 디자인
-                        </td>
-                        <td>
-                            ▸ 호러·추리 사운드스케이프 애정<br>
-                            ▸ FMOD·Wwise 환영<br>
-                            ▸ 누아르, 호러, 미스터리 장르의 사운드 디자인 경험자
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">모집 포지션</h2>
             
-            <div style="background-color: rgba(166, 73, 66, 0.2); padding: 15px; border-radius: 5px; margin-top: 20px;">
+            <div class="positions-grid">
+                <div class="position-card">
+                    <div class="position-header">
+                        <h3 class="position-title">게임 아티스트</h3>
+                        <span class="position-count">1명</span>
+                    </div>
+                    <div class="position-content">
+                        <div class="position-section">
+                            <p class="section-label">당신이 하게 될 일</p>
+                            <ul class="duties-list">
+                                <li>일러스트 / 배경 / UI 등 2D 아트 전반</li>
+                                <li>콘셉트 시트 & 파이널 리소스 제작</li>
+                            </ul>
+                        </div>
+                        <div class="position-section">
+                            <p class="section-label">이런 분이면 딱!</p>
+                            <ul class="qualifications-list">
+                                <li>픽셀/일러스트 자유자재</li>
+                                <li>팀 코어아트 잡고 싶은 분</li>
+                                <li>오이디푸스 비극, 그리스 신화, 크툴루 신화에 관심 많으신 분</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="position-card">
+                    <div class="position-header">
+                        <h3 class="position-title">픽셀 아티스트</h3>
+                        <span class="position-count">1명</span>
+                    </div>
+                    <div class="position-content">
+                        <div class="position-section">
+                            <p class="section-label">당신이 하게 될 일</p>
+                            <ul class="duties-list">
+                                <li>캐릭터 & 오브젝트 픽셀 작업</li>
+                                <li>캐릭터 애니메이션</li>
+                            </ul>
+                        </div>
+                        <div class="position-section">
+                            <p class="section-label">이런 분이면 딱!</p>
+                            <ul class="qualifications-list">
+                                <li>2D 도트에 진심</li>
+                                <li>스팀 레트로 감성 좋아하는 분</li>
+                                <li>Tails Noir, 안녕 서울 등의 게임 스타일에 관심 있으신 분</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="position-card">
+                    <div class="position-header">
+                        <h3 class="position-title">UI/UX 디자이너</h3>
+                        <span class="position-count">1명</span>
+                    </div>
+                    <div class="position-content">
+                        <div class="position-section">
+                            <p class="section-label">당신이 하게 될 일</p>
+                            <ul class="duties-list">
+                                <li>인게임 UI/UX 설계 & 제작</li>
+                                <li>레이아웃 가이드</li>
+                            </ul>
+                        </div>
+                        <div class="position-section">
+                            <p class="section-label">이런 분이면 딱!</p>
+                            <ul class="qualifications-list">
+                                <li>"시리어스 미스터리" 톤앤매너 이해</li>
+                                <li>유니티 UI 경험 우대</li>
+                                <li>누아르, 미스터리 장르의 UI 디자인에 관심 있으신 분</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="position-card">
+                    <div class="position-header">
+                        <h3 class="position-title">사운드 크리에이터</h3>
+                        <span class="position-count">1명</span>
+                    </div>
+                    <div class="position-content">
+                        <div class="position-section">
+                            <p class="section-label">당신이 하게 될 일</p>
+                            <ul class="duties-list">
+                                <li>BGM / SFX / 앰비언스 전반</li>
+                                <li>세기말 느와르 × 픽셀 하모니 디자인</li>
+                            </ul>
+                        </div>
+                        <div class="position-section">
+                            <p class="section-label">이런 분이면 딱!</p>
+                            <ul class="qualifications-list">
+                                <li>호러·추리 사운드스케이프 애정</li>
+                                <li>FMOD·Wwise 환영</li>
+                                <li>누아르, 호러, 미스터리 장르의 사운드 디자인 경험자</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="common-qualifications">
                 <h3>공통 자격</h3>
                 <ul>
                     <li>협업 & 피드백에 열린 태도</li>
                     <li>잠수 NO, 소통 YES</li>
-                    <li>인디 감성 + 장르 애정 ❤️</li>
+                    <li>인디 감성 + 미스터리 장르에 대한 애정</li>
                     <li>해외 여행에 결격 사유가 없으신 분</li>
                 </ul>
             </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>⏳ 로드맵</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">로드맵</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2025 Q2-Q3</h3>
+                        <h3 class="timeline-date">2025 Q2-Q3</h3>
                         <p>시스템 프로토타입 개발 & 아트 파이프라인 확정</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
-                <div class="timeline-item right">
+                
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2025 Q4</h3>
+                        <h3 class="timeline-date">2025 Q4</h3>
                         <p>알파 챕터 완료 & 내부 피드백</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
-                <div class="timeline-item left">
+                
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>2026년 1월 16일</h3>
+                        <h3 class="timeline-date">2026년 1월 16일</h3>
                         <p>네오위즈 퀘스트 데모 제출</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
-                <div class="timeline-item right">
+                
+                <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>이후 계획</h3>
+                        <h3 class="timeline-date">이후 계획</h3>
                         <p>크라우드펀딩 → 콘솔·스팀 런칭 & 사업화</p>
                         <p><em>순이익</em> 기본 <strong>1/N + 기여도 보너스</strong> 투명 분배</p>
                     </div>
+                    <div class="timeline-dot"></div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="apply-section">
-            <h2>📩 지원 방법</h2>
-            <ol>
-                <li><strong>자기소개 & 포트폴리오</strong> (링크 또는 PDF)</li>
-                <li><strong>희망 포지션 / 가능 시간대 / 간단한 합류 동기</strong></li>
-                <li>아래 연락처로 보내주세요</li>
-            </ol>
-            <p>
-                <strong>메일:</strong> <a href="mailto:birdsol1122@gmail.com" style="color: var(--accent-color);">birdsol1122@gmail.com</a><br>
-                <strong>오픈카톡:</strong> <a href="https://open.kakao.com/o/soBnjhsf" style="color: var(--accent-color);">https://open.kakao.com/o/soBnjhsf</a>
-            </p>
-            <p>궁금한 건 언제든 24h DM OK!</p>
-            <p><strong>"세기말 픽셀 느와르"에 심장이 뛰었다면, 당신의 한 장면을 이 도시의 운명에 새겨 주세요.</strong></p>
-            <a href="mailto:birdsol1122@gmail.com" class="apply-button">지금 지원하기</a>
+    <section class="apply-section">
+        <div class="container">
+            <h2 class="apply-title">지원 방법</h2>
+            
+            <div class="apply-steps">
+                <div class="apply-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>자기소개 & 포트폴리오</strong> (링크 또는 PDF)
+                    </div>
+                </div>
+                
+                <div class="apply-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>희망 포지션 / 가능 시간대 / 간단한 합류 동기</strong>
+                    </div>
+                </div>
+                
+                <div class="apply-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>아래 연락처로 보내주세요</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="apply-contact">
+                <p><strong>메일:</strong> <a href="mailto:birdsol1122@gmail.com" class="contact-link">birdsol1122@gmail.com</a></p>
+                <p><strong>오픈카톡:</strong> <a href="https://open.kakao.com/o/susyqosh" class="contact-link">https://open.kakao.com/o/susyqosh</a></p>
+            </div>
+            
+            <p class="apply-cta">"세기말 픽셀 느와르"에 심장이 뛰었다면,<br>당신의 한 장면을 이 도시의 운명에 새겨 주세요.</p>
+            
+            <a href="mailto:birdsol1122@gmail.com" class="button">지금 지원하기</a>
         </div>
+    </section>
 
-        <footer>
+    <footer>
+        <div class="container">
             <p>― Project OED Dev Team ―</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 </body>
 </html>
